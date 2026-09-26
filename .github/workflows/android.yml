@@ -20,7 +20,8 @@ jobs:
       - name: Extract source
         run: unzip -q Raabta-Android-Source-Preview.zip
       - name: Use installed Android SDK
-        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" 'platforms;android-35' 'build-tools;35.0.0'
       - name: Check reminder rules
         run: bash checks/run.sh
         working-directory: Raabta
@@ -36,3 +37,4 @@ jobs:
         with:
           name: Build-reports
           path: Raabta/app/build/reports/
+
